@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/search/cities/', function () {
+    $id=$_GET['id'];
+    $flights = App\City::where('city_id', $id)->get();
+    
+    return response()->json($flights);
+});
+Route::get('/search/provinces/', function () {
+  $id=$_GET['id'];
+  $flights = App\Province::where('province_id', $id)->get();
+    
+    return response()->json($flights);
+});
+
