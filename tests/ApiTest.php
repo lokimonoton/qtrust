@@ -13,7 +13,9 @@ class ApiTest extends TestCase
      */
     public function testExample()
     {
-        
-        $this->assertTrue(true);
+      $this->get('/login?user=coba&pass=coba')->seeStatusCode(200)->response->getContent();
+ 
+    
     }
+    
 }

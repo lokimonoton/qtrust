@@ -14,6 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/cities', function () {
+    $flights = App\City::all();
+    return response()->json($flights);        
+});
+Route::get('/provinces', function () {
+    $flights = App\Province::all();
+    return response()->json($flights);        
+});
 Route::get('/search/cities/', function () {
     try{
     $key=$_GET['key'];
@@ -48,9 +56,9 @@ Route::get('/search/provinces/', function () {
     }else{
         $flights = App\Orang::where('key', $key)->get();
         if(count($flights)==0){
-    return response()->json(["error"=>"key yang anda masukkan salah silahkan login terlebih dahulu"]);                
+    return response()->json(["error"=>"key yang anda masukkan salah silahkan login terlebih dahulu","haha"=>"huhu"]);                
         }else{
-    $flights = App\Province::where('city_id', $id)->get();
+    $flights = App\Province::where('province_id', $id)->get();
     return response()->json($flights);    
         }
     }
@@ -77,7 +85,7 @@ Route::get('/login', function () {
   }
   
     }catch(Exception $e){
-    return response()->json(["error"=>$e]);    
+    return response()->json(["error"=>"user pass parameter tidak diisi"]);    
     }
   
     
