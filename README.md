@@ -3,10 +3,9 @@ disini saya membuat rest api untuk mendapatkan data tentang kota dan provinsi de
 
 1) pertama kita buat database bernama 'rajaongkir' di phpmyadmin
 
-2) setelah itu git clone repo ini dan masuk folder clone kita tadi lalu jalankan perintah **composer install** setelah itu kita jalankan perintah
-**php artisan migrate** untuk membuat tabel di database **rajaongkir**
+2) setelah itu git clone repo ini dan masuk folder clone kita tadi lalu jalankan perintah **composer install**
 
-3) kita ganti .env sesuai dengan database kita
+3) kita ganti nama file **.env.example** menjadi **.env** lalu kita rubah beberapa variabel sesuai dengan database kita
 
 ```
 DB_CONNECTION=mysql
@@ -16,6 +15,8 @@ DB_DATABASE=rajaongkir
 DB_USERNAME=root
 DB_PASSWORD=
 ```
+setelah itu kita jalankan perintah
+**php artisan migrate** untuk membuat tabel di database **rajaongkir**
 
 4) setelah itu jalankan perintah **php artisan fetch:province** untuk memasukkan data provinsi dan kota dari API rajaongkir ke dalam database rajaongkir tunggu sampai ada tulisan **done**
 
