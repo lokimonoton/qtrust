@@ -1,6 +1,6 @@
 # REST API SEDERHANA
 
-jika anda menggunakan php 7 pindah ke branch **php7**
+
 
 disini saya membuat rest api untuk mendapatkan data tentang kota dan provinsi dengan menggunakan API rajaongkir
 
@@ -24,6 +24,7 @@ setelah itu kita jalankan perintah
 4) setelah itu jalankan perintah **php artisan fetch:province** untuk memasukkan data provinsi dan kota dari API rajaongkir ke dalam database rajaongkir tunggu sampai ada tulisan **done**
 
 5) setelah itu jalankan laravel dengan menggunakan perintah **php artisan serve** lalu buka halaman http://localhost:8000 jika ada tulisan **Laravel** maka laravel sudah berjalan dengan benar
+jika masih error jalankan perintah **php artisan key:generate** lalu jalankan perintah **php artisan serve**
 
 6) register dahulu dengan masuk ke **http://localhost:8000/register?user=coba&pass=coba1** disini kita menggunakan **username** **coba** dan **password coba1** untuk percobaan register  jika berhasil anda akan mendapat json seperti ini
 
