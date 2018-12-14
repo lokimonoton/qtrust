@@ -1,27 +1,62 @@
-# Laravel PHP Framework
+# REST API SEDERHANA
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+jika anda menggunakan php 7 pindah ke branch **php7**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+disini saya membuat rest api untuk mendapatkan data tentang kota dan provinsi dengan menggunakan API rajaongkir
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+1) pertama kita buat database bernama 'rajaongkir' di phpmyadmin
 
-## Official Documentation
+2) setelah itu git clone repo ini dan masuk folder clone kita tadi lalu jalankan perintah **composer install**
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+3) kita ganti nama file **.env.example** menjadi **.env** lalu kita rubah beberapa variabel sesuai dengan database kita
 
-## Contributing
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=rajaongkir
+DB_USERNAME=root
+DB_PASSWORD=
+```
+setelah itu kita jalankan perintah
+**php artisan migrate** untuk membuat tabel di database **rajaongkir**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+4) setelah itu jalankan perintah **php artisan fetch:province** untuk memasukkan data provinsi dan kota dari API rajaongkir ke dalam database rajaongkir tunggu sampai ada tulisan **done**
 
-## Security Vulnerabilities
+5) setelah itu jalankan laravel dengan menggunakan perintah **php artisan serve** lalu buka halaman http://localhost:8000 jika ada tulisan **Laravel** maka laravel sudah berjalan dengan benar
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+6) register dahulu dengan masuk ke **http://localhost:8000/register?user=coba&pass=coba1** disini kita menggunakan **username** **coba** dan **password coba1** untuk percobaan register  jika berhasil anda akan mendapat json seperti ini
 
-## License
+```
+{
+user: "coba",
+pass: "coba1",
+updated_at: "2018-12-14 11:48:36",
+created_at: "2018-12-14 11:48:36",
+id: 2,
+}
+```
+tandanya anda telah berhasil register dalam sistem
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+7) setelah itu login dengan user dan pass yang sudah anda buat tadi yaitu user=coba dan pass=coba1 dengan masuk ke link berikut **http://localhost:8000/login?user=coba&pass=coba1** jika berhasil anda akan mendapatkan json seperti dibawah ini
+
+```
+{
+key: "1d94be6d288a0b1fefadd52fbe44b8e223b2da847358de1a30b7f5f20b5e088c",
+keterangan: "gunakan key untuk search/cities?id={city_id} atau search/provinces?id={province_id}",
+}
+```
+
+8) keterangan disini saya gunakan untuk memperjelas anda agar bisa mencari provinsi dan kota dengan key yang sudah anda dapatkan dengan begini anda bisa mencari provinsi atau kota dengan menuju link **search/cities?id={city_id}** atau **search/provinces?id={province_id}** misal kita coba mencari provinsi dengan id 1 maka kita menuju link **https://localhost:8000/search/provinces?id=1&key=1d94be6d288a0b1fefadd52fbe44b8e223b2da847358de1a30b7f5f20b5e088c** dengan menuju ke link berikut maka anda akan mendapatkan json seperti di bawah ini
+
+```
+[
+{
+province_id: 1,
+province: "Bali",
+created_at: "2018-12-14 11:46:10",
+updated_at: "2018-12-14 11:46:10",
+}
+]
+```
+9) untuk melihat semua id city anda bisa melihat disini **http://localhost:8000/cities** sedangkan provinsi bisa dilihat disini **http://localhost:8000/provinces**
