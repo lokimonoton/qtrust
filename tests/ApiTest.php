@@ -4,16 +4,18 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class ApiTest extends TestCase
 {
     /**
-     * A basic functional test example.
+     * A basic test example.
      *
      * @return void
      */
-    public function testBasicExample()
+    public function testExample()
     {
-        $this->visit('/')
-             ->see('Laravel 5');
+      $this->get('/login?user=coba&pass=coba')->seeStatusCode(200)->response->getContent();
+ 
+    
     }
+    
 }
