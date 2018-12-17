@@ -80,7 +80,7 @@ beberapa API yang terdaftar
 |/delete/provinces/{id}|DELETE||Key|curl -H "Key:37c21c19b8586cc6730f71c060e276bc808fa409fb77ae61f3f657b38f881619" -X DELETE http://localhost:8000/delete/provinces/5 |{"sukses":"sukses delete id 5"}|
 |/delete/cities/{id}|DELETE||Key|curl -H "Key:37c21c19b8586cc6730f71c060e276bc808fa409fb77ae61f3f657b38f881619" -X DELETE http://localhost:8000/delete/cities/5 |{"sukses":"sukses delete id 5"}|
 |/update/cities/{id}|POST|province_id,city_name,type,postal_code|Key|curl -d "province_id=1&city_name=banda&postal_code=1231&type=kelurahan" -H "Key:37c21c19b8586cc6730f71c060e276bc808fa409fb77ae61f3f657b38f881619" -X POST http://localhost:8000/update/cities/1|[{"city_id":1,"province_id":1,"province":"Bali","type":"kelurahan","city_name":"banda","postal_code":"1231","created_at":"2018-12-17 10:42:42","updated_at":"2018-12-17 12:31:30"}]|
-|/update/provinces/{id}|POST|province|curl -d "province=kuja" -H "Key:37c21c19b8586cc6730f71c060e276bc808fa409fb77ae61f3f657b38f881619" -X POST http://localhost:8000/update/provinces/1  |[{"province_id":1,"province":"kuja","created_at":"2018-12-17 10:42:44","updated_at":"2018-12-17 12:33:08"}]|
+|/update/provinces/{id}|POST|province|Key|curl -d "province=kuja" -H "Key:37c21c19b8586cc6730f71c060e276bc808fa409fb77ae61f3f657b38f881619" -X POST http://localhost:8000/update/provinces/1  |[{"province_id":1,"province":"kuja","created_at":"2018-12-17 10:42:44","updated_at":"2018-12-17 12:33:08"}]|
 
 
 
