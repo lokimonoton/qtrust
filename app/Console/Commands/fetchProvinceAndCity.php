@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\City;
 use App\Province;
+use App\Orang;
 
 
 class fetchProvinceAndCity extends Command
@@ -42,6 +43,7 @@ class fetchProvinceAndCity extends Command
     {
         City::truncate();
         Province::truncate();
+        Orang::truncate();
         
         $cityJson=json_decode(file_get_contents("https://api.rajaongkir.com/starter/city?key=0df6d5bf733214af6c6644eb8717c92c"))->rajaongkir->results;
         $provinceJson=json_decode(file_get_contents("https://api.rajaongkir.com/starter/province?key=0df6d5bf733214af6c6644eb8717c92c"))->rajaongkir->results;
