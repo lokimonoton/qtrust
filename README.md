@@ -63,7 +63,9 @@ jika masih error jalankan perintah **php artisan key:generate** lalu jalankan pe
 <!--9) untuk melihat semua id city anda bisa melihat disini **http://localhost:8000/cities** sedangkan provinsi bisa dilihat disini **http://localhost:8000/provinces**-->
 # REVISI
 revisi kali ini register dengan username yang sama tidak diperbolehkan dan key digunakan di header dan beberapa url sensitif seperti login
-atau register atau pencarian selalu menggunakan method POST dan juga saat register password akan otomatis di hash
+atau register atau pencarian selalu menggunakan method POST dan juga saat register password akan otomatis di hash beberapa fungsi CRUD 
+yang saya buat antara lain /create/provinces, /create/cities, /provinces, /cities, /update/provinces/{id}, /update/cities/{id},
+/delete/provinces/{id}, /delete/cities/{id}
 
 beberapa API yang terdaftar
 
